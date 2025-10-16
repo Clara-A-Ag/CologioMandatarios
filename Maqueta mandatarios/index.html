@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Gestión de Mandatarios</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Barra lateral -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <h2>⚖️ Mandatarios</h2>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <h3>MANDATARIOS</h3>
+                    <a href="#" class="nav-link active" data-view="santa-fe">
+                        <span>Santa Fe</span>
+                    </a>
+                </div>
+                
+                <div class="nav-section">
+                    <h3>IMPORTACIÓN MASIVA</h3>
+                    <a href="#" class="nav-link" data-view="import-bulk">
+                        <span>Santa Fe</span>
+                    </a>
+                </div>
+                
+                <div class="nav-section">
+                    <h3>IMPORTACIÓN FOTOS</h3>
+                    <a href="#" class="nav-link" data-view="import-photos">
+                        <span>Santa Fe</span>
+                    </a>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Contenido principal -->
+        <main class="main-content">
+            <!-- Agregado botón de menú móvil -->
+            <div class="top-header">
+                <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>
+                <div class="user-menu">
+                    <button class="user-button" id="userMenuBtn">
+                        <svg class="user-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                        <span id="userNameDisplay"></span>
+                        <svg class="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </button>
+                    <div class="user-dropdown" id="userDropdown">
+                        <div class="dropdown-header">
+                            <div class="dropdown-user-info">
+                                <svg class="dropdown-user-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="12" cy="7" r="4"></circle>
+                                </svg>
+                                <span id="dropdownUserName"></span>
+                            </div>
+                        </div>
+                        <div class="dropdown-divider"></div>
+                        <button class="dropdown-item" id="logoutBtn">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                                <polyline points="16 17 21 12 16 7"></polyline>
+                                <line x1="21" y1="12" x2="9" y2="12"></line>
+                            </svg>
+                            Cerrar Sesión
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vista Santa Fe -->
+            <div id="santa-fe-view" class="view active">
+                <div class="content-header">
+                    <h1>Mandatarios de Santa Fe</h1>
+                    <div class="header-actions">
+                        <!-- Agregado texto de marcador de posición al campo de búsqueda -->
+                        <input type="text" id="searchInput" placeholder="Buscar por nombre, CUIT o matrícula..." class="search-input">
+                        <button class="btn btn-primary" id="addMandatarioBtn">
+                            <span>+</span> Agregar Mandatario
+                        </button>
+                    </div>
+                </div>
+
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Nombre Y Apellido</th>
+                                <th>CUIT</th>
+                                <th>Matrícula Provincial</th>
+                                <th>Matrícula Nacional</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="mandatariosTable">
+                            <tr class="empty-state">
+                                <td colspan="5">
+                                    <div class="empty-message">
+                                        <p>No hay mandatarios registrados</p>
+                                        <p class="empty-submessage">Comienza agregando un nuevo mandatario</p>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="pagination" id="pagination">
+                    <button class="btn btn-secondary" id="prevPage" disabled>Anterior</button>
+                    <span class="pagination-info" id="pageInfo">Página 1 de 1</span>
+                    <button class="btn btn-secondary" id="nextPage" disabled>Siguiente</button>
+                </div>
+            </div>
+
+            <!-- Agregada Vista de Importación Masiva -->
+            <div id="import-bulk-view" class="view">
+                <div class="content-header">
+                    <h1>Importación completa de mandatarios de Santa Fe</h1>
+                </div>
+
+                <div class="import-steps">
+                    <div class="step active">
+                        <div class="step-number">1</div>
+                        <div class="step-label">Carga del archivo</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-label">Vista previa y Validación</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-label">Resultado de la importación</div>
+                    </div>
+                </div>
+
+                <div class="import-card">
+                    <h3>Carga del archivo</h3>
+                    <div class="drop-zone" id="bulkDropZone">
+                        <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="17 8 12 3 7 8"></polyline>
+                            <line x1="12" y1="3" x2="12" y2="15"></line>
+                        </svg>
+                        <p>Arrastra y suelta el archivo aquí</p>
+                        <p class="drop-zone-hint">o haz clic para seleccionar</p>
+                        <input type="file" id="bulkFileInput" accept=".csv,.xlsx,.xls" hidden>
+                    </div>
+                    <div id="bulkFileInfo" class="file-info"></div>
+                    <div class="form-actions">
+                        <button class="btn btn-secondary" onclick="showView('santa-fe')">Cancelar</button>
+                        <button class="btn btn-primary" id="processBulkBtn" disabled>Procesar archivo</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Agregada Vista de Importación de Fotos -->
+            <div id="import-photos-view" class="view">
+                <div class="content-header">
+                    <h1>Importación de fotos de matriculados</h1>
+                </div>
+
+                <div class="import-card">
+                    <div class="alert alert-info">
+                        <strong>Importante:</strong> el nombre de las fotos deberá coincidir con la matrícula provincial del matriculado
+                    </div>
+
+                    <div class="drop-zone" id="photosDropZone">
+                        <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                            <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                            <polyline points="21 15 16 10 5 21"></polyline>
+                        </svg>
+                        <p>Arrastra y suelta las fotos aquí</p>
+                        <p class="drop-zone-hint">Puedes seleccionar múltiples archivos</p>
+                        <input type="file" id="photosFileInput" accept="image/*" multiple hidden>
+                    </div>
+
+                    <div id="photosPreview" class="photos-preview"></div>
+
+                    <div class="form-actions">
+                        <button class="btn btn-secondary" onclick="showView('santa-fe')">Cancelar</button>
+                        <button class="btn btn-primary" id="uploadPhotosBtn" disabled>Subir Imágenes</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal para Agregar/Editar Mandatario -->
+            <div id="mandatarioModal" class="modal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 id="modalTitle">Alta de Mandatarios de Santa Fe</h2>
+                        <button class="close-btn" id="closeModal">&times;</button>
+                    </div>
+                    <form id="mandatarioForm">
+                        <input type="hidden" id="mandatarioId">
+                        
+                        <div class="form-group">
+                            <label for="apeynom">Nombre y Apellido <span class="required">*</span></label>
+                            <input 
+                                type="text" 
+                                id="apeynom" 
+                                name="apeynom" 
+                                required
+                                placeholder="Ingrese apellido y nombre"
+                            >
+                            <small class="form-help">Solo letras, espacios y acentos permitidos</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="cuit">CUIT <span class="required">*</span></label>
+                            <input 
+                                type="text" 
+                                id="cuit" 
+                                name="cuit" 
+                                required
+                                placeholder="20291139451"
+                                maxlength="11"
+                            >
+                            <small class="form-help">Sin guiones. Por ejemplo: 20291139451</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="matriculaProvincial">Matrícula Provincial <span class="required">*</span></label>
+                            <input 
+                                type="text" 
+                                id="matriculaProvincial" 
+                                name="matriculaProvincial" 
+                                required
+                                placeholder="SL03988"
+                            >
+                            <small class="form-help">Formato: 2 letras seguidas de números</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="matriculaNacional">Matrícula Nacional</label>
+                            <input 
+                                type="text" 
+                                id="matriculaNacional" 
+                                name="matriculaNacional"
+                                placeholder="M20212738814732IDN"
+                            >
+                            <small class="form-help">Opcional</small>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-secondary" id="cancelBtn">Cancelar</button>
+                            <button type="submit" class="btn btn-primary">
+                                <span>💾</span> Guardar cambios
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <div id="notification" class="notification"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
