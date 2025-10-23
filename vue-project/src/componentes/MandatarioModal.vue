@@ -85,7 +85,7 @@
 </template>
 
 <script>
-import { useMandatariosStore } from '@/store/mandatarios';
+import { useMandatariosStore } from '@/mandatarios';
 // Importamos la función de utilidad para notificaciones
 // Asumiendo que esta función es global o importable
 // import { showNotification } from '@/utils/notifications'; 
