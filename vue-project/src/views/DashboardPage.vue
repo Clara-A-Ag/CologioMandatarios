@@ -18,9 +18,9 @@
 </template>
 
 <script>
-import AppLayout from '../components/AppLayout.vue'; 
-import MandatariosTabla from '../components/MandatariosTabla.vue'; 
-import MandatarioModal from '../components/MandatarioModal.vue';
+import AppLayout from '@/components/AppLayout.vue'; 
+import MandatariosTabla from '@/components/MandatariosTabla.vue'; 
+import MandatarioModal from '@/components/MandatarioModal.vue';
 
 
 export default {
