@@ -40,21 +40,56 @@ export default {
 </script>
 
 <style scoped>
-.dashboard-page h1 {
-  margin-top: 0;
-  margin-bottom: 20px;
-  color: #333;
+/* Contenido principal */
+.content-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 
-.header-controls {
+.content-header h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-text-dark);
+}
+
+.header-actions {
   display: flex;
-  gap: 15px;
-  margin-bottom: 25px;
+  gap: 1rem;
+  align-items: center;
 }
 
 .search-input {
-  flex-grow: 1;
-  max-width: 400px;
-  border: 1px solid var(--color-border);
+  padding: 0.75rem 1rem;
+  border: 2px solid var(--color-border);
+  border-radius: 8px;
+  font-size: 0.95rem;
+  width: 300px;
+  transition: all 0.2s;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+@media (max-width: 768px) {
+  .content-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .header-actions {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .search-input {
+    width: 100%;
+  }
 }
 </style>

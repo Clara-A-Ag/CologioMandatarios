@@ -1,8 +1,12 @@
 <template>
-  <div id="app">
-    <LoginPage v-if="!isLoggedIn" @login-success="isLoggedIn = true" />
-    <DashboardPage v-else />
-  </div>
+<div id="app">
+    <template v-if="isLoggedIn">
+      <DashboardPage />
+    </template>
+    <template v-else>
+      <LoginPage @login-success="isLoggedIn = true" />
+    </template>
+</div>
 </template>
 
 <script>

@@ -2,6 +2,7 @@ import { createApp } from 'vue'
 import App from './App.vue'
 // 1. Importa la función 'createPinia'
 import { createPinia } from 'pinia' 
+import './assets/style.css'; // Asegúrate de que esta ruta sea correcta
 
 // Inicializa la aplicación
 const app = createApp(App)

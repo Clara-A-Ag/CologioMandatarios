@@ -27,21 +27,63 @@ export default {
 </script>
 
 <style scoped>
+/* Barra lateral */
 .sidebar {
-  width: 250px;
-  background-color: var(--color-sidebar); 
-  color: var(--color-text-light);
-  /* ... (Estilos de Sidebar, igual que en la respuesta anterior) ... */
-  padding: 20px 0;
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  width: 280px;
+  background: var(--color-sidebar);
+  color: white;
+  padding: 2rem 0;
   display: flex;
   flex-direction: column;
+  box-shadow: 4px 0 12px rgba(0, 0, 0, 0.1);
 }
-.logo-container {
+
+.sidebar-header {
+  padding: 0 1.5rem 2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-header h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.sidebar-nav {
+  flex: 1;
+  padding: 1.5rem 0;
+}
+
+.nav-section {
+  margin-bottom: 2rem;
+}
+
+.nav-section h3 {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #e7e7e7;
+  padding: 0 1.5rem;
+  margin-bottom: 0.75rem;
+  letter-spacing: 0.05em;
+}
+
+.nav-link {
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 0 20px;
-  margin-bottom: 20px;
-} 
+  padding: 0.75rem 1.5rem;
+  color: #ffff;
+  text-decoration: none;
+  transition: all 0.2s;
+  border-left: 3px solid transparent;
+}
+
+.nav-link:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+}
+
+.nav-link.active {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border-left-color: var(--color-primary);
+}
 </style>

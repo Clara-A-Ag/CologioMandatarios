@@ -1,62 +1,243 @@
-/* Variables de Color */
+/* Variables de Color (Basadas en el CSS proporcionado) */
 :root {
-    --color-primary: #6c75f5; /* Azul/Violeta de los botones */
-    --color-sidebar: #38577c; /* Azul oscuro de la barra lateral */
-    --color-text-light: #fefefe;
-    --color-background-light: #f0f2f5; /* Fondo gris claro */
-    --color-border: #e0e0e0;
+    --color-primary: #667eea; /* Azul/Violeta para botones, enlaces, focus, sidebar active */
+    --color-sidebar: #598ec3; /* Azul de la Sidebar */
+    --color-login-bg-start: #598ec3;
+    --color-login-bg-end: #6095ca;
+    --color-text-dark: #1e293b;
+    --color-text-medium: #475569;
+    --color-text-light: white;
+    --color-text-subtle: #64748b;
+    --color-bg-light: #f8fafc; /* Gris claro de fondo general y tabla thead */
+    --color-border: #e2e8f0;
+    --color-error: #ef4444;
 }
 
-/* Base de la Aplicación */
+/* Estilos generales */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: var(--color-background-light);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background: var(--color-bg-light);
+  color: var(--color-text-dark);
+  line-height: 1.6;
 }
 
-#app {
-    display: flex;
-    min-height: 100vh;
-    flex-grow: 1;
-}
-
-/* --- Estilos Comunes (Botones/Formularios) --- */
-
+/* --- Botones --- */
 .btn {
-    padding: 10px 15px;
-    border-radius: 6px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background-color 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-decoration: none;
 }
 
 .btn-primary {
-    background-color: var(--color-primary);
-    color: var(--color-text-light);
-    border: none;
+  background: var(--color-primary);
+  color: var(--color-text-light);
 }
-
 .btn-primary:hover {
-    background-color: #5a66e0;
+  background: #5568d3;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
 }
 
 .btn-secondary {
-    background-color: #6c757d;
-    color: var(--color-text-light);
-    border: none;
+  background: var(--color-text-subtle);
+  color: var(--color-text-light);
 }
-.btn-danger {
-    background-color: #dc3545;
-    color: white;
-    border: none;
+.btn-secondary:hover {
+  background: #475569;
+}
+.btn-secondary:disabled {
+  background: #cbd5e1;
+  cursor: not-allowed;
+  transform: none;
 }
 
-/* Estilos de Input/Búsqueda */
-input[type="text"], input[type="password"] {
-    padding: 10px;
-    border: 1px solid var(--color-border);
-    border-radius: 4px;
-    width: 100%;
-    box-sizing: border-box;
+.btn-danger {
+  background: var(--color-error);
+  color: white;
+}
+.btn-danger:hover {
+  background: #dc2626;
+}
+
+.btn-link {
+  background: transparent;
+  color: var(--color-primary);
+  padding: 0.5rem 1rem;
+}
+.btn-link:hover {
+  background: rgba(102, 126, 234, 0.1);
+}
+
+.btn-block {
+  width: 100%;
+  justify-content: center;
+}
+
+/* --- Formulario Común (Usado en Modal y Login) --- */
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 0.75rem;
+  border: 2px solid var(--color-border);
+  border-radius: 8px;
+  font-size: 0.95rem;
+  transition: all 0.2s;
+}
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.form-group.error input {
+  border-color: var(--color-error);
+  background-color: #fef2f2;
+}
+
+.error-message {
+  color: var(--color-error);
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+.error-message:before {
+  content: "⚠";
+}
+.required {
+  color: var(--color-error);
+}
+
+/* --- Tabla Común --- */
+.table-container {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.data-table thead {
+  background: var(--color-bg-light); /* f8fafc */
+}
+
+.data-table th {
+  padding: 1rem;
+  text-align: left;
+  font-weight: 600;
+  color: var(--color-text-medium); /* 475569 */
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 2px solid var(--color-border);
+}
+
+.data-table td {
+  padding: 1rem;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.data-table tbody tr:hover {
+  background: var(--color-bg-light);
+}
+
+.data-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* --- Paginación Común --- */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 0;
+}
+.pagination-info {
+  color: var(--color-text-subtle);
+  font-size: 0.95rem;
+}
+
+/* --- Modal Común --- */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+.modal.is-active {
+  display: flex;
+}
+.modal-content {
+  background: white;
+  border-radius: 12px;
+  max-width: 600px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.modal-header h2 {
+  font-size: 1.5rem;
+  color: var(--color-text-dark);
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: var(--color-text-subtle);
+  cursor: pointer;
+  line-height: 1;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+.close-btn:hover {
+  background: #f1f5f9;
+  color: var(--color-text-dark);
 }

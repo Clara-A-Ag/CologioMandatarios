@@ -26,20 +26,46 @@ export default {
 </script>
 
 <style scoped>
-.app-layout {
+/* Contenedor de la aplicación */
+.app-container {
   display: flex;
-  width: 100%;
   min-height: 100vh;
 }
 
+/* Contenido principal */
 .main-content {
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
+  flex: 1;
+  padding: 2rem;
+  overflow-y: auto;
 }
 
 .page-content {
-  padding: 20px;
-  flex-grow: 1;
+    /* Aquí se coloca el contenido específico de la vista */
+    padding: 0; /* Ya tenemos padding en main-content */
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .app-container {
+    flex-direction: column;
+  }
+
+  /* La Sidebar pasa a ser un menú móvil oculto */
+  .sidebar {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: -100%;
+    height: 100vh;
+    z-index: 1000;
+    transition: left 0.3s ease;
+  }
+  .sidebar.active {
+    left: 0;
+  }
+  
+  .main-content {
+    padding: 1rem;
+  }
 }
 </style>

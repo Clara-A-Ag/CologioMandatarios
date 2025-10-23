@@ -53,60 +53,129 @@ export default {
 </script>
 
 <style scoped>
+/* Container that centers the login box vertically and horizontally */
 .login-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: var(--color-primary); /* Fondo azul de la imagen 1 */
+  background: linear-gradient(135deg, var(--color-login-bg-start) 0%, var(--color-login-bg-end) 100%);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
 }
-/* ... (Estilos del Login Box, igual que en la respuesta anterior) ... */
+
+/* The box that contains the form */
 .login-box {
-    background-color: white;
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 400px;
-    text-align: center;
+  max-width: 600px;
+  width: 100%;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+  padding: 2.5rem;
 }
 
+/* Optional header styles (no h1 in template but kept for possible future use) */
+.login-header {
+  text-align: center;
+  margin-bottom: 1rem;
+  color: inherit;
+}
+.login-header h1 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  line-height: 1.3;
+}
+
+/* Lock icon and title inside the box */
 .lock-icon {
-    color: var(--color-primary);
-    margin-bottom: 20px;
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: center;
 }
 
-h2 {
-    margin-top: 0;
-    margin-bottom: 30px;
-    font-size: 1.4em;
-    color: #333;
+/* Title shown in the template (h2) */
+.login-box h2 {
+  font-size: 1.25rem;
+  color: var(--color-text-dark);
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 1rem;
 }
 
+/* Form layout */
 .form-group {
-    text-align: left;
-    margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
 }
 
-.form-group label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: 500;
+.form-group input[type="text"],
+.form-group input[type="password"] {
+  padding: 0.6rem 0.75rem;
+  border: 1px solid var(--color-border, #ddd);
+  border-radius: 6px;
+  font-size: 1rem;
+  outline: none;
 }
 
+/* Checkbox group used in the template */
 .checkbox-group {
-    text-align: left;
-    margin-bottom: 20px;
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.checkbox-group input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
 }
 
 .checkbox-group label {
-    margin-left: 8px;
-    font-weight: normal;
+  cursor: pointer;
+  user-select: none;
 }
 
-.full-width {
-    width: 100%;
+/* Button full width */
+.btn.full-width {
+  width: 100%;
+  padding: 0.75rem;
+  border-radius: 8px;
+}
+
+/* Help / footer area */
+.login-help {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--color-border, #eee);
+  font-size: 0.9rem;
+  color: var(--color-text-subtle);
+}
+
+.login-help p {
+  margin-bottom: 0.75rem;
+}
+
+.login-help ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.login-help li {
+  padding: 0.5rem 0;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.login-help li:before {
+  content: "•";
+  position: absolute;
+  left: 0.5rem;
+  color: var(--color-primary);
+  font-weight: bold;
 }
 </style>

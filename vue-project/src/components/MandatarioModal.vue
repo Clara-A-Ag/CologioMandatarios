@@ -155,20 +155,28 @@ export default {
 </script>
 
 <style scoped>
-/* Estilos del Modal */
-.modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0, 0, 0, 0.4); align-items: center; justify-content: center; }
-.modal.is-active { display: flex; }
-.modal-content { background-color: #fefefe; margin: auto; padding: 20px; border-radius: 8px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); width: 90%; max-width: 600px; }
-.modal-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; padding-bottom: 10px; margin-bottom: 20px; }
-.close-btn { color: #aaa; font-size: 28px; font-weight: bold; border: none; background: none; cursor: pointer; }
-
 /* Estilos de Formulario */
-.form-group { margin-bottom: 15px; }
-.form-group label { display: block; font-weight: bold; margin-bottom: 5px; }
-.form-group input { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; }
-.form-group.error input { border-color: red; }
-.error-message { color: red; font-size: 0.8em; margin-top: 5px; }
+form {
+  padding: 2rem;
+}
 
-.form-actions { display: flex; justify-content: flex-end; gap: 10px; margin-top: 30px; }
-.btn-danger { margin-right: auto; }
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: #334155;
+}
+
+.form-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--color-border);
+}
 </style>
