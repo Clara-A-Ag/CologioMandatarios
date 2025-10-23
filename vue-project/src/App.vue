@@ -15,11 +15,11 @@
 </template>
 
 <script>
-import Sidebar from './components/Sidebar.vue';
-import TopHeader from './components/TopHeader.vue';
-import MandatarioModal from './components/MandatarioModal.vue';
+import Sidebar from './componentes/Sidebar.vue';
+import TopHeader from './componentes/TopHeader.vue';
+import MandatarioModal from './componentes/MandatarioModal.vue';
 // Podrías añadir lógica de autenticación aquí o en el router guard
-import { useAuthStore } from './store/auth';
+import { useAuthStore } from './auth.js';
 
 export default {
   name: 'App',
