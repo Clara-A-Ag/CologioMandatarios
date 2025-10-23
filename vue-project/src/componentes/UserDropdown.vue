@@ -1,18 +1,19 @@
 <template>
   <div class="user-dropdown">
     <button @click="toggleDropdown" class="user-btn">
-      <span>Hola, Usuario</span> <span class="icon">▼</span>
+      <span class="username">santafé</span> 
+      <svg fill="currentColor" viewBox="0 0 20 20" width="14" height="14" class="icon-arrow">
+        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
+      </svg>
     </button>
-
+    
     <div v-if="isOpen" class="dropdown-menu">
-      <a href="#" @click.prevent="viewProfile">Mi Perfil</a>
-      <a href="#" @click.prevent="logout">Cerrar Sesión</a>
+      <a href="#" @click.prevent="logout">Cerrar Sesión</a> 
     </div>
   </div>
 </template>
 
 <script>
-// Aquí iría la lógica para interactuar con el Store de Autenticación de Pinia
 export default {
   name: 'UserDropdown',
   data() {
@@ -25,12 +26,8 @@ export default {
       this.isOpen = !this.isOpen;
     },
     logout() {
+      // Lógica de logout real...
       alert('Cerrando sesión...');
-      this.isOpen = false;
-      // Lógica real: Llamar a la acción de logout del store de Pinia
-    },
-    viewProfile() {
-      alert('Ir a perfil...');
       this.isOpen = false;
     }
   }
@@ -38,6 +35,7 @@ export default {
 </script>
 
 <style scoped>
+/* ... (Estilos de UserDropdown, igual que en la respuesta anterior) ... */
 .user-dropdown {
   position: relative;
   display: inline-block;

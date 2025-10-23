@@ -1,46 +1,30 @@
 <template>
-  <div class="app-container">
-    <Sidebar />
-
-    <main class="main-content">
-      <TopHeader />
-      
-      <router-view></router-view>
-      
-      <MandatarioModal />
-    </main>
+  <div id="app">
+    <LoginPage v-if="!isLoggedIn" @login-success="isLoggedIn = true" />
+    <DashboardPage v-else />
   </div>
-  
-  <div id="notification" class="notification"></div>
 </template>
 
 <script>
-import Sidebar from './componentes/Sidebar.vue';
-import TopHeader from './componentes/TopHeader.vue';
-import MandatarioModal from './componentes/MandatarioModal.vue';
-// Podrías añadir lógica de autenticación aquí o en el router guard
-import { useAuthStore } from './auth.js';
+// Importa las vistas (páginas)
+import LoginPage from './views/LoginPage.vue';
+import DashboardPage from './views/DashboardPage.vue';
 
 export default {
   name: 'App',
   components: {
-    Sidebar,
-    TopHeader,
-    MandatarioModal,
+    LoginPage,
+    DashboardPage,
   },
-  setup() {
-    const authStore = useAuthStore();
-    
-    // El checkAuthentication original se convierte en un router guard 
-    // o se ejecuta aquí para inicializar el estado
-    if (!authStore.isAuthenticated) {
-      // Redirigir al login si no está autenticado
-      // Esto se maneja mejor con Vue Router Global Guards
-    }
+  data() {
+    return {
+      // Simulación de estado de sesión. En un proyecto real, se usaría un Pinia Store de Auth.
+      isLoggedIn: false, 
+    };
   }
 };
 </script>
 
 <style>
-/* Estilos principales para .app-container y el layout general (flex/grid) */
+/* El estilo base ya está en styles.css. Aquí solo si hubiera estilos específicos de #app */
 </style>
