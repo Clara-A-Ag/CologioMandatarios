@@ -38,38 +38,40 @@ export default {
 </script>
 
 <style scoped>
-/* Estilos básicos */
 .user-dropdown {
   position: relative;
   display: inline-block;
-  cursor: pointer;
 }
 .user-btn {
-  background: none;
-  border: none;
-  color: white;
-  padding: 10px 15px;
+  background-color: transparent;
+  border: 1px solid var(--color-border);
+  color: #333;
+  padding: 8px 12px;
+  border-radius: 4px;
   cursor: pointer;
   display: flex;
   align-items: center;
   gap: 5px;
+  font-size: 0.9em;
 }
+
 .dropdown-menu {
   position: absolute;
   top: 100%;
   right: 0;
   background-color: white;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   border-radius: 4px;
   min-width: 150px;
   z-index: 100;
-  overflow: hidden;
+  margin-top: 5px;
 }
 .dropdown-menu a {
   display: block;
   padding: 10px;
   text-decoration: none;
   color: #333;
+  font-size: 0.9em;
 }
 .dropdown-menu a:hover {
   background-color: #f0f0f0;

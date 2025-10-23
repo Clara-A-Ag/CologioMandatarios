@@ -1,0 +1,62 @@
+/* Variables de Color */
+:root {
+    --color-primary: #6c75f5; /* Azul/Violeta de los botones */
+    --color-sidebar: #38577c; /* Azul oscuro de la barra lateral */
+    --color-text-light: #fefefe;
+    --color-background-light: #f0f2f5; /* Fondo gris claro */
+    --color-border: #e0e0e0;
+}
+
+/* Base de la Aplicación */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-background-light);
+}
+
+#app {
+    display: flex;
+    min-height: 100vh;
+    flex-grow: 1;
+}
+
+/* --- Estilos Comunes (Botones/Formularios) --- */
+
+.btn {
+    padding: 10px 15px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-primary {
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #5a66e0;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    color: var(--color-text-light);
+    border: none;
+}
+.btn-danger {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+}
+
+/* Estilos de Input/Búsqueda */
+input[type="text"], input[type="password"] {
+    padding: 10px;
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    width: 100%;
+    box-sizing: border-box;
+}

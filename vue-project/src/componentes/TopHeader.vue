@@ -63,3 +63,18 @@ export default {
   }
 };
 </script>
+<style scoped>
+.top-header {
+  height: 60px;
+  background-color: var(--color-text-light);
+  border-bottom: 1px solid var(--color-border);
+  display: flex;
+  justify-content: flex-end; /* Empuja el dropdown a la derecha */
+  align-items: center;
+  padding: 0 20px;
+}
+
+.header-placeholder {
+    flex-grow: 1; /* Permite que el espacio quede libre si no hay contenido */
+}
+</style>
