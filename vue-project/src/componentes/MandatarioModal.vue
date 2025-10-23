@@ -107,6 +107,7 @@ export default {
       return this.formData.id ? 'Consulta/Edición de Mandatario' : 'Alta de Mandatarios de Santa Fe';
     }
   },
+  
   // La mejor práctica es usar un bus de eventos o un estado en Pinia para controlar el modal
   mounted() {
     // Ejemplo de cómo escuchar eventos si se usa un bus global (mitt)
