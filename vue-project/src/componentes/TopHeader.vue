@@ -27,7 +27,7 @@
 
 <script>
 import UserDropdown from './UserDropdown.vue';
-import { useAuthStore } from '../store/auth';
+import { useAuthStore } from '../auth';
 
 export default {
   name: 'TopHeader',
