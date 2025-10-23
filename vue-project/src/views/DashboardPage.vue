@@ -1,9 +1,9 @@
 <template>
   <AppLayout>
-    <div class="dashboard-page">
+    <div class="content-header">
       <h1>Mandatarios de Santa Fe</h1>
       
-      <div class="header-controls">
+      <div class="header-actions">
         <input type="text" placeholder="Buscar por nombre, CUIT o matrícula..." class="search-input">
         <button class="btn btn-primary" @click="openModal(null)">
           + Agregar Mandatario
