@@ -1,4 +1,16 @@
 import { createApp } from 'vue'
 import App from './App.vue'
+// 1. Importa la función 'createPinia'
+import { createPinia } from 'pinia' 
 
-createApp(App).mount('#app')
+// Inicializa la aplicación
+const app = createApp(App)
+
+// 2. Crea la instancia de Pinia
+const pinia = createPinia()
+
+// 3. Usa Pinia en la aplicación Vue
+app.use(pinia)
+
+// Monta la aplicación
+app.mount('#app')
